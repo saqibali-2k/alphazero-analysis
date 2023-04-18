@@ -1,0 +1,16 @@
+.DS_Store
+Manifest.toml
+
+*.jl.*.cov
+*.jl.cov
+*.jl.mem
+*.data
+*~
+
+/docs/build/
+/docs/site/
+
+sessions
+archive
+
+TODO.md
