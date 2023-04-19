@@ -4,7 +4,7 @@ along with a library of standard architectures.
 """
 module KnetLib
 
-export SimpleNet, SimpleNetHP, ResNet, ResNetHP
+export SimpleNet, SimpleNetHP, ResNet, ResNetHP, ViT, ViTHP
 
 using ..AlphaZero
 
@@ -171,5 +171,6 @@ end
 
 include("architectures/simplenet.jl")
 include("architectures/resnet.jl")
+include("architectures/vit.jl")
 
 end

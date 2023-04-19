@@ -8,5 +8,6 @@ To do so, run the following in this folder:
 ```sh
 git clone https://github.com/PascalPons/connect4
 cd connect4
+git checkout 5e8f0b8
 wget https://github.com/PascalPons/connect4/releases/download/book/7x6.book
 ```

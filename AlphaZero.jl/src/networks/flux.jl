@@ -4,7 +4,7 @@ along with a library of standard architectures.
 """
 module FluxLib
 
-export SimpleNet, SimpleNetHP, ResNet, ResNetHP
+export SimpleNet, SimpleNetHP, ResNet, ResNetHP, ViT, ViTHP
 
 using ..AlphaZero
 
@@ -18,8 +18,9 @@ array_on_gpu(::Array) = false
 array_on_gpu(::CuArray) = true
 array_on_gpu(arr) = error("Usupported array type: ", typeof(arr))
 
-using Flux: relu, softmax, flatten
-using Flux: Chain, Dense, Conv, BatchNorm, SkipConnection
+using Flux: relu, softmax, flatten, gelu, gpu
+using Flux: Chain, Dense, Conv, BatchNorm, SkipConnection, LayerNorm, Dropout
+using Flux.NNlib: dot_product_attention
 import Zygote
 
 #####
@@ -164,5 +165,6 @@ Network.on_gpu(nn::TwoHeadNetwork) = array_on_gpu(nn.vhead[end].bias)
 
 include("architectures/simplenet.jl")
 include("architectures/resnet.jl")
+include("architectures/vit.jl")
 
 end

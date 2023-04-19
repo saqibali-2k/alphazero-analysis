@@ -146,7 +146,7 @@ module AlphaZero
 
   using .NetLib
   export NetLib
-  export SimpleNet, SimpleNetHP, ResNet, ResNetHP
+  export SimpleNet, SimpleNetHP, ResNet, ResNetHP, ViT, ViTHP
 
   # A structure that contains the information necessary to replicate a training session
   include("experiments.jl")
