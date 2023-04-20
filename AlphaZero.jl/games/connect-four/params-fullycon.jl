@@ -2,14 +2,15 @@
 ##### Training hyperparameters
 #####
 
-Network = NetLib.ViT
+Network = NetLib.SimpleNet
 
-#### Condition: embed_size % num_heads == 0
-netparams = NetLib.ViTHP(
-  embed_size=96,
-  num_heads=16,
-  depth=13,
-  patch_size=2)
+netparams = NetLib.SimpleNetHP(
+  width=200,
+  depth_common=10,
+  depth_phead=32,
+  depth_vhead=32,
+  use_batch_norm=true,
+  batch_norm_momentum=0.6f0)
 
 self_play = SelfPlayParams(
   sim=SimParams(
@@ -60,7 +61,7 @@ params = Params(
   arena=arena,
   self_play=self_play,
   learning=learning,
-  num_iters=5,
+  num_iters=15,
   ternary_rewards=true,
   use_symmetries=true,
   memory_analysis=nothing,
